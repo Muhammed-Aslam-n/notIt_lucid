@@ -43,7 +43,8 @@ dependencies:
   wc_form_validators: any
   fluttericon: any
   flutter_slidable: any
-
+  lottie: ^1.2.2
+  flutter_screenutil: any
 
 
 dev_dependencies:

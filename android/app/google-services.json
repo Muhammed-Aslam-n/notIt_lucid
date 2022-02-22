@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "672960810322",
+    "project_id": "noteit-5ee23",
+    "storage_bucket": "noteit-5ee23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672960810322:android:c35a94c13762d3f53a3e8b",
+        "android_client_info": {
+          "package_name": "com.example.tweeter_app_lucid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672960810322-41v2h0di2a6u6rtgdi050if5l6ic604t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNp8L9ba0Gs1minrcPpXvoobICacaAdbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672960810322-41v2h0di2a6u6rtgdi050if5l6ic604t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
