@@ -47,6 +47,19 @@ class  AuthController extends GetxController{
     }
   }
 
+  void register() async {
+    // Function to Register to firebase using their email and Password as Credentials
+    try {
+      await firebaseAuth.createUserWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+      disposeLoginTextField();
+    } catch (error) {
+      snackBar(error,
+          title: "Account Creation failed"); // snackbar to show error occurred
+    }
+  }
+
   void userLogin() async {
     // Function to Login to SchoLoger with already registered credentials
     try {
@@ -59,7 +72,15 @@ class  AuthController extends GetxController{
     }
   }
 
+  Future<void> signOut() async {
+    // Method to Sign out user When they need to..
+    await firebaseAuth.signOut();
+    currentProfilePicture =
+    null; //  makes null to not to display previous user profile in any case
+    disposeLoginTextField();
+  }
 
+  String? currentProfilePicture;
 
 
 

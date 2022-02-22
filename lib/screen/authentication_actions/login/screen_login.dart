@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../constants/constants.dart';
@@ -14,8 +15,6 @@ class ScreenLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -24,18 +23,19 @@ class ScreenLogin extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         body: Container(
           width: double.maxFinite,
-          height: height,
           decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: ExactAssetImage(
-                    "assets/images/bgImages/bg82.jpg",
-                  ),
-                  fit: BoxFit.cover)),
+            image: DecorationImage(
+              image: ExactAssetImage(
+                "assets/images/bgImages/bg82.jpg",
+              ),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: height * 0.08,
+                height: 60.h,
               ),
               Container(
                 margin: const EdgeInsets.all(15),
@@ -48,14 +48,14 @@ class ScreenLogin extends StatelessWidget {
                       size: 62.0,
                     ),
                     SizedBox(
-                      height: height * 0.005,
+                      height: 5.h,
                     ),
-                    const CommonText(
+                    CommonText(
                       text: "\t\tSign in to your account!",
-                      size: 13.0,
+                      size: 13.0.sp,
                     ),
                     SizedBox(
-                      height: height * 0.18,
+                      height: 100.h,
                     ),
                     CommonTextField(
                       prefixIcon: const Icon(Icons.email),
@@ -66,7 +66,8 @@ class ScreenLogin extends StatelessWidget {
                     sizedh2,
                     CommonTextField(
                       prefixIcon: const Icon(Icons.lock),
-                      controller: AuthController.authController.passwordController,
+                      controller:
+                          AuthController.authController.passwordController,
                       label: "Password",
                       obscureText: true,
                     ),
@@ -74,10 +75,18 @@ class ScreenLogin extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 40),
                       child: GestureDetector(
-                          onTap: (){
-                            Get.to(const ScreenForgotPassword());
-                          },
-                          child: const Text("Forgott Password?",style: TextStyle(color: Colors.redAccent,decoration: TextDecoration.underline,fontSize: 12.5),)),
+                        onTap: () {
+                          Get.to(const ScreenForgotPassword());
+                        },
+                        child: Text(
+                          "Forgott Password?",
+                          style: TextStyle(
+                            color: Colors.redAccent,
+                            decoration: TextDecoration.underline,
+                            fontSize: 12.5.sp,
+                          ),
+                        ),
+                      ),
                     ),
                     sizedh2,
                     sizedh2,
@@ -90,8 +99,8 @@ class ScreenLogin extends StatelessWidget {
                           AuthController.authController.disposeLoginTextField();
                         },
                         child: Container(
-                          height: height * 0.065,
-                          width: width * 0.35,
+                          height: 40.h,
+                          width: 120.w,
                           decoration: BoxDecoration(
                             borderRadius: tfRadius,
                             image: const DecorationImage(
@@ -99,37 +108,42 @@ class ScreenLogin extends StatelessWidget {
                                 image: ExactAssetImage(
                                   "assets/images/bgImages/bgButton1.jpg",
                                 ),
-                                fit: BoxFit.cover),),
+                                fit: BoxFit.cover),
+                          ),
                           child: const Center(
-                              child: CommonText(
-                                text: "Sign In",
-                                color: Colors.white,
-                                size: 22.0,
-                              )),
+                            child: CommonText(
+                              text: "Sign In",
+                              color: Colors.white,
+                              size: 22.0,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 100,
+                    SizedBox(
+                      height: 110.h,
                     ),
                     Center(
                       child: RichText(
                         text: TextSpan(
                           text: "Don't have an account ? ",
                           style: TextStyle(
-                              fontSize: 14.3, color: Colors.grey.shade600),
+                            fontSize: 14.3.sp,
+                            color: Colors.grey.shade600,
+                          ),
                           children: [
                             TextSpan(
                               text: "Create",
-                              style: const TextStyle(
-                                fontSize: 14.3,
+                              style: TextStyle(
+                                fontSize: 14.3.sp,
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
                               ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                  AuthController.authController.disposeLoginTextField();
                                   Get.toNamed('SignUpPage');
+                                  AuthController.authController
+                                      .disposeLoginTextField();
                                 },
                             ),
                           ],

@@ -55,7 +55,12 @@ class ScreenHome extends StatelessWidget {
                           foreground: Paint()..shader = linearGradient,
                         ),
                       ),
-                      
+                      trailing: ElevatedButton(
+                        onPressed: (){
+                          AuthController.authController.signOut();
+                        },
+                        child: Text("Logout"),
+                      ),
                     ),
                     sizedh2,
                     const SizedBox(

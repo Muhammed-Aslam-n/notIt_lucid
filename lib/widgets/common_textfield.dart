@@ -53,7 +53,7 @@ class CommonTextField extends StatelessWidget {
           focusedBorder: tfOutlineBorder,
           enabledBorder: tfOutlineBorder,
           prefixIcon: prefixIcon,
-          label: Text(label ?? '',style: TextStyle(color: Colors.grey.withOpacity(0.2)),),
+          label: Text(label ?? '',style: TextStyle(color: Colors.grey.withOpacity(0.8)),),
         ),
       ),
     );
