@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tweeter_app_lucid/screen/authentication_actions/login/screen_login.dart';
-import 'package:tweeter_app_lucid/screen/profile_screens/update_profile.dart';
+import 'package:tweeter_app_lucid/screen/authentication_actions/recovery/screen_forgotpassword.dart';
+import 'package:tweeter_app_lucid/screen/home/screen_tweet.dart';
 import 'package:tweeter_app_lucid/screen/splash_screen/splashscreen.dart';
 
 import 'controllers/auth_controller.dart';
@@ -35,9 +36,9 @@ class MyApp extends StatelessWidget {
           GetPage(name: '/SignUpPage', page: () => const ScreenSignup()),
           GetPage(name: '/home', page: () => const ScreenHome()),
           GetPage(
-              name: '/updateProfile', page: () => const ScreenUpdateProfile()),
+              name: '/forgotPassword', page: () => const ScreenForgotPassword()),
           GetPage(
-              name: '/forgotPassword', page: () => const ScreenUpdateProfile()),
+              name: '/createTweet', page: () => ScreenTweet()),
         ],
       ),
     );

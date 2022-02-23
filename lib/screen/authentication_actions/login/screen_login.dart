@@ -2,13 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import '../../../constants/constants.dart';
-import '../../../controllers/auth_controller.dart';
-import '../../../widgets/common_headers.dart';
-import '../../../widgets/common_text.dart';
-import '../../../widgets/common_textfield.dart';
-import '../recovery/screen_forgotpassword.dart';
+import 'package:tweeter_app_lucid/controllers/auth_controller.dart';
+import 'package:tweeter_app_lucid/widgets/auth_button.dart';
+import 'package:tweeter_app_lucid/widgets/common_headers.dart';
+import 'package:tweeter_app_lucid/widgets/common_text.dart';
+import 'package:tweeter_app_lucid/widgets/common_textfield.dart';
 
 class ScreenLogin extends StatelessWidget {
   const ScreenLogin({Key? key}) : super(key: key);
@@ -62,8 +60,9 @@ class ScreenLogin extends StatelessWidget {
                       controller: AuthController.authController.emailController,
                       label: "Email",
                     ),
-                    sizedh2,
-                    sizedh2,
+                    SizedBox(
+                      height: 40.h,
+                    ),
                     CommonTextField(
                       prefixIcon: const Icon(Icons.lock),
                       controller:
@@ -71,54 +70,40 @@ class ScreenLogin extends StatelessWidget {
                       label: "Password",
                       obscureText: true,
                     ),
-                    sizedh1,
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(const ScreenForgotPassword());
-                        },
-                        child: Text(
-                          "Forgott Password?",
-                          style: TextStyle(
-                            color: Colors.redAccent,
-                            decoration: TextDecoration.underline,
-                            fontSize: 12.5.sp,
-                          ),
-                        ),
-                      ),
+                    SizedBox(
+                      height: 10.h,
                     ),
-                    sizedh2,
-                    sizedh2,
                     Align(
                       alignment: Alignment.centerRight,
-                      child: GestureDetector(
-                        onTap: () {
-                          debugPrint("Login Button Clicked");
-                          AuthController.authController.userLogin();
-                          AuthController.authController.disposeLoginTextField();
-                        },
-                        child: Container(
-                          height: 40.h,
-                          width: 120.w,
-                          decoration: BoxDecoration(
-                            borderRadius: tfRadius,
-                            image: const DecorationImage(
-                                opacity: 0.6,
-                                image: ExactAssetImage(
-                                  "assets/images/bgImages/bgButton1.jpg",
-                                ),
-                                fit: BoxFit.cover),
-                          ),
-                          child: const Center(
-                            child: CommonText(
-                              text: "Sign In",
-                              color: Colors.white,
-                              size: 22.0,
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 0),
+                        child: TextButton(
+                          onPressed: () {
+                            Get.toNamed("/forgotPassword");
+                          },
+                          child: Text(
+                            "Forgott Password?",
+                            style: TextStyle(
+                              color: Colors.redAccent,
+                              fontSize: 12.5.sp,
                             ),
                           ),
                         ),
                       ),
+                    ),
+                    SizedBox(
+                      height: 40.h,
+                    ),
+                    AuthenticationButton(
+                      onTap: () {
+                        debugPrint("Login Button Clicked");
+                        AuthController.authController.userLogin();
+                        AuthController.authController.disposeLoginTextField();
+                      },
+                      imageURL: "assets/images/bgImages/bgButton1.jpg",
+                      height: 40.h,
+                      width: 120.w,
+                      buttonText: "Login",
                     ),
                     SizedBox(
                       height: 110.h,

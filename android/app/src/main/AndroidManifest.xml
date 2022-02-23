@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tweeter_app_lucid">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="tweeter_app_lucid"
+        android:label="Tweet"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

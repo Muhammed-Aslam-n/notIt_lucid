@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tweeter_app_lucid/constants/constants.dart';
 import 'package:tweeter_app_lucid/controllers/auth_controller.dart';
+import 'package:tweeter_app_lucid/widgets/auth_button.dart';
 import 'package:tweeter_app_lucid/widgets/common_headers.dart';
 import 'package:tweeter_app_lucid/widgets/common_text.dart';
 import 'package:tweeter_app_lucid/widgets/common_textfield.dart';
@@ -38,10 +39,17 @@ class ScreenSignup extends StatelessWidget {
                     SizedBox(
                       height: 100.h,
                     ),
-                    CommonHeaders(
-                      text: "Sign Up\t",
-                      size: 56.0.sp,
+                    const CommonHeaders(
+                      text: "Hi!",
                       color: Colors.black,
+                      size: 62.0,
+                    ),
+                    SizedBox(
+                      height: 5.h,
+                    ),
+                    CommonText(
+                      text: "\t\tSign up to Enjoy with us",
+                      size: 13.0.sp,
                     ),
                     SizedBox(
                       height: 70.h,
@@ -70,39 +78,15 @@ class ScreenSignup extends StatelessWidget {
                     SizedBox(
                       height: 40.h,
                     ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: GestureDetector(
-                        onTap: () {
-                          debugPrint("SignUp Button Clicked");
-                          AuthController.authController.register();
-                        },
-                        child: Container(
-                          height: 40.h,
-                          width: 120.w,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: tfRadius,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey.shade500,
-                                spreadRadius: 0.5,
-                                blurRadius: 2
-                              )
-                            ]
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 3),
-                            child: Center(
-                              child: CommonText(
-                                text: "Sign In",
-                                color: Colors.grey.shade800,
-                                size: 23.0.sp,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                    AuthenticationButton(
+                      onTap: () {
+                        debugPrint("SignUp Button Clicked");
+                        AuthController.authController.register();
+                      },
+                      imageURL: "assets/images/bgImages/bgButton1.jpg",
+                      height: 40.h,
+                      width: 120.w,
+                      buttonText: "Sign In",
                     ),
                   ],
                 ),
